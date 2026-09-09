@@ -45,3 +45,5 @@ else:
 
 secrets.SystemRandom().shuffle(pw)
 print("Dein Passwort:","".join(pw)) # .join macht aus der Liste wieder einen String -- dabei verbinden wir die Elemente ohne Trennzeichen
+
+input("Zum Beenden ENTER Taste drücken")
