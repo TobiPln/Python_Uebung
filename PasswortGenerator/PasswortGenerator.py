@@ -3,8 +3,7 @@ import secrets
 zeichen = "QWERTZUIOPASDFGHJKLYXCVBNMqwertzuiopasdfghjklyxcvbnm1234567890"
 sonderzeichen = "@!$%&?*+#-_:.()=><,"
 
-pw = ""
-
+pw = []
 
 while True: 
     try: # etwas, das schief gehen kann
@@ -31,18 +30,18 @@ while sonder != "j" and sonder != "n":
     sonder = sonder.lower()
 
 if sonder == "j":
-    pw += secrets.choice(sonderzeichen)
-    zeichenpool = zeichen
+    pw.append(secrets.choice(sonderzeichen))
+    zeichenpool = zeichen + sonderzeichen
 
     for _ in range(laenge - 1):
-        pw += secrets.choice(zeichenpool)
+        pw.append(secrets.choice(zeichenpool))
 
 else:
     zeichenpool = zeichen
-    
+
     for _ in range(laenge):
-        pw += secrets.choice(zeichenpool)
+        pw.append(secrets.choice(zeichenpool))
 
 
-
-print("Dein Passwort:", pw)
+secrets.SystemRandom().shuffle(pw)
+print("Dein Passwort:","".join(pw)) # .join macht aus der Liste wieder einen String -- dabei verbinden wir die Elemente ohne Trennzeichen
